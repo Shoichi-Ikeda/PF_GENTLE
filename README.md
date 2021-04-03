@@ -1,24 +1,29 @@
-# README
+# <GENTLE>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+<>
 
-Things you may want to cover:
+### サイトテーマ
+<>
 
-* Ruby version
+### テーマを選んだ理由
+<自分の飲んだワインの気軽なテイスティングノートを作りたかった>
 
-* System dependencies
+### ターゲットユーザ
+<家でもワインを飲むほどのワイン好き>
 
-* Configuration
+### 主な利用シーン
+<自分の飲んだワインを記録し、他のユーザが飲んだワインの評価も参考にできる>
 
-* Database creation
+## 設計書
+https://drive.google.com/file/d/15NmwddIRgAWwih2T5Jo8IhZhxxWbPTwz/view?usp=sharing
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1J_Twkh2fqxT2aRWrSYt_UTHmHF9IrVO9keUJ7Hj2kOU/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
