@@ -24,7 +24,7 @@
 
 ### ターゲットユーザ
 - ソムリエではない。
-- SNSに投稿するのが面倒な中年男性。
+- SNSに投稿するのが面倒な男性。
 - 低〜中価格帯のワインをよく飲まれる方。
 
 ### 主な利用シーン
@@ -36,6 +36,8 @@
 https://drive.google.com/file/d/15NmwddIRgAWwih2T5Jo8IhZhxxWbPTwz/view?usp=sharing
 - テーブル定義書
 https://drive.google.com/file/d/1tsGJuqqd-a8tvgmb96kZPu86DVKDL6XG/view?usp=sharing
+- アプリケーション詳細設計書
+https://drive.google.com/file/d/1ytIMzrH4hpae66jcoDrzIz73zYX4IqdW/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1J_Twkh2fqxT2aRWrSYt_UTHmHF9IrVO9keUJ7Hj2kOU/edit?usp=sharing
