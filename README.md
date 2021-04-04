@@ -1,9 +1,9 @@
 # **GENTLE**
 
 ## サイト概要
-このサイトは自分が飲んだワインを記録するための画像投稿サイトです。 
-写真を添付し、テキスト入力するのはワイン名だけ!
-残りの項目は該当するものを選択してください。
+このサイトは自分が飲んだワインを記録するための画像投稿サイトです。<br>  
+写真を添付し、テキスト入力するのはワイン名だけ!!<br>
+残りの項目は該当するものを選択してください。<br>
 1. 飲んだワインを撮影・選択 
 2. ワイン名を入力 
 3. ワインの種類（赤・白・ロゼ・泡）を選択 
@@ -40,7 +40,7 @@ https://drive.google.com/file/d/1tsGJuqqd-a8tvgmb96kZPu86DVKDL6XG/view?usp=shari
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1J_Twkh2fqxT2aRWrSYt_UTHmHF9IrVO9keUJ7Hj2kOU/edit?usp=sharing
 
-## 開発環境
+## 開発環境 
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
