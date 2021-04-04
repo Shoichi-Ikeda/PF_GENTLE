@@ -40,7 +40,7 @@ https://drive.google.com/file/d/1tsGJuqqd-a8tvgmb96kZPu86DVKDL6XG/view?usp=shari
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1J_Twkh2fqxT2aRWrSYt_UTHmHF9IrVO9keUJ7Hj2kOU/edit?usp=sharing
 
-## 開発環境 
+## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
