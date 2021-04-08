@@ -23,7 +23,7 @@
 - ユーザーがワインを通じて笑顔になれるサイトを作りたかった。
 
 ### ターゲットユーザ
-- ソムリエではない。
+- ソムリエではない人を対象としている。
 - SNSに投稿するのが面倒な男性。
 - 低〜中価格帯のワインをよく飲まれる方。
 
@@ -31,15 +31,7 @@
 - 家やレストランなどで自分の飲んだワインを簡潔に記録する。
 - 他のユーザがどんなワインを飲んだかワイン購入時の参考にする。
 
-## 設計書
-- ER図
-https://drive.google.com/file/d/15NmwddIRgAWwih2T5Jo8IhZhxxWbPTwz/view?usp=sharing
-- テーブル定義書
-https://drive.google.com/file/d/1tsGJuqqd-a8tvgmb96kZPu86DVKDL6XG/view?usp=sharing
-- アプリケーション詳細設計書
-https://drive.google.com/file/d/1ytIMzrH4hpae66jcoDrzIz73zYX4IqdW/view?usp=sharing
-
-## チャレンジ要素一覧
+## 機能一覧
 https://docs.google.com/spreadsheets/d/1J_Twkh2fqxT2aRWrSYt_UTHmHF9IrVO9keUJ7Hj2kOU/edit?usp=sharing
 
 ## 開発環境
