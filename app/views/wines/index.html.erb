@@ -26,22 +26,19 @@
   <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "選択してください" %>
 </div>
 <h4>価格帯</h4>
-<div class="form-group">
-
+<div class="form-group"></div>
+<h4>評価</h4>
+<div class="rating-form">
+  <%= f.hidden_field :rating, id: :rating_star %>
 </div>
-<h4>評価</h4><div class="rating-box">
-  <div class="main-rating">
-    <div class="ratings">
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-    </div>
-    <div class="rating-value-display"><span id="rating-value-display">0</span>/5</div>
-  </div>
-  <%= f.hidden_field :ratings, id: "rating-value" %>
-  <%= f.submit "保存", class: "button" %>
-</div>
+ <%= f.submit "保存", class: "button" %>
 <% end %>
 
+<script>
+  $('.rating-form').raty({
+    path: '/assets/',
+    scoreName: 'wine[rating]'
+  });
+</script>
+
+<% @wine.each do |wine| %>
