@@ -71,7 +71,6 @@ gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 
-
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
