@@ -1,44 +1,31 @@
-<!--render 'wines/form', wine: @wine %>-->
-<h3>NEW TASTING</h3>
-<%= form_with model: @wine, local: true do |f| %>
-<h4>画像</h4>
-<div class="form-group">
-  <%= f.attachment_field :wine_image %>
-</div>
-<h4>ワイン名</h4>
-<div class="form-group">
-  <%= f.text_field :wine_name %>
-</div>
-<h4>種類</h4>
-<div class="form-group">
-  <%= f.select :type, [["赤","0"],["白","1"],["ロゼ","2"],["泡","3"],["その他","4"]], include_blank: "選択してください" %>
-</div>
-<h4>生産国</h4>
-<div class="form-group">
-  <%= f.select :country, [["日本","0"],["フランス","1"],["イタリア","2"],["スペイン","3"],["ドイツ","4"],["アメリカ","5"],["オーストラリア","6"],["アルゼンチン","7"],["チリ","8"],["その他","9"]], include_blank: "選択してください" %>
-</div>
-<h4>品種</h4>
-<div class="form-group">
-  <%= f.select :variety, [["カベルネ・ソーヴィニヨン","0"],["メルロー","1"],["ピノ・ノワール","2"],["シラー","3"],["グルナッシュ","4"],["シャルドネ","5"],["リースリング","6"],["ソーヴィニヨン・ブラン","7"],["甲州","8"],["その他","9"]], include_blank: "選択してください" %>
-</div>
-<h4>生産年</h4>
-<div class="form-group">
-  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "選択してください" %>
-</div>
-<h4>価格帯</h4>
-<div class="form-group"></div>
-<h4>評価</h4>
-<div class="rating-form">
-  <%= f.hidden_field :rating, id: :rating_star %>
-</div>
- <%= f.submit "保存", class: "button" %>
-<% end %>
+<div class="container">
+  <% render "layouts/errors", obj: @wine %>
+  <div class="row">
+    <div class="col-md-3">
+      <!--render "user/info", user: current_user-->
+      <h3 class="mt-3">NEW TASTING</h3>
+      <%= render "form", wine: @wine %>
+    </div>
+    <div class="col-md-9 offset-md-1">
+      <% @wines.each do |wine| %>
+      <%= attachment_image_tag wine, :wine_image, :fill, 200, 200 %>
+      <%= image_tag('no_image.jpg') %>
+      <%= wine.user.name %>
+      <%= wine.wine_name %>
+      <div id="star-rate-<%= wine.id %>"></div>
+          <script>
+          $('#star-rate-<%= wine.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            score: <%= wine.rating %>,
+          });
+          </script>
+      <% end %>
 
-<script>
-  $('.rating-form').raty({
-    path: '/assets/',
-    scoreName: 'wine[rating]'
-  });
-</script>
-
-<% @wine.each do |wine| %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
