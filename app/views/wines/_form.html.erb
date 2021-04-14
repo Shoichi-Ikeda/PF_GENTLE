@@ -1,46 +1,37 @@
-<h3>NEW TASTING</h3>
-<%= form_with model: wine, local: true do |f| %>
-<h4>画像</h4>
+<%= form_with model: @wine, local: true do |f| %>
 <div class="form-group">
-  <%= f.attachment_field :wine_image %>
+  <%= f.attachment_field :wine_image, class: "form wine_image" %>
 </div>
-<h4>ワイン名</h4>
 <div class="form-group">
-  <%= f.text_field :wine_name %>
+  <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"form wine_name" %>
 </div>
-<h4>種類</h4>
 <div class="form-group">
-  <%= f.select :type, [["赤","0"],["白","1"],["ロゼ","2"],["泡","3"],["その他","4"]], include_blank: "選択してください" %>
+  <%= f.select :kind, Wine.kinds.keys.map {|k| [k, k]}, class: "form wine_kind" %>
 </div>
-<h4>生産国</h4>
 <div class="form-group">
-  <%= f.select :country, [["日本","0"],["フランス","1"],["イタリア","2"],["スペイン","3"],["ドイツ","4"],["アメリカ","5"],["オーストラリア","6"],["アルゼンチン","7"],["チリ","8"],["その他","9"]], include_blank: "選択してください" %>
+  <%= f.select :country, Wine.countries.keys.map {|k| [k, k]}, class: "form wine_country" %>
 </div>
-<h4>品種</h4>
 <div class="form-group">
-  <%= f.select :variety, [["カベルネ・ソーヴィニヨン","0"],["メルロー","1"],["ピノ・ノワール","2"],["シラー","3"],["グルナッシュ","4"],["シャルドネ","5"],["リースリング","6"],["ソーヴィニヨン・ブラン","7"],["甲州","8"],["その他","9"]], include_blank: "選択してください" %>
+  <%= f.select :variety,  Wine.varieties.keys.map {|k| [k, k]}, class: "form wine_variety" %>
 </div>
-<h4>生産年</h4>
 <div class="form-group">
-  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989}, include_blank: "選択してください" %>
+  <%= f.select :price, Wine.prices.keys.map {|k| [k, k]}, class: "form wine_price" %>
 </div>
-<h4>価格帯</h4>
 <div class="form-group">
-
+  <%= f.label :生産年 %>
+  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "form wine_vintage" %>
 </div>
-<h4>評価</h4>
-<div class="rating-box">
-  <div class="main-rating">
-    <div class="ratings">
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-      <span class="fa fa-star-o" id="star"></span>
-    </div>
-    <div class="rating-value-display"><span id="rating-value-display"></span></div>
-  </div>
-  <%= f.hidden_field :ratings %>
-  <%= f.submit "保存", class: "button" %>
+<div class="form-group" id="star">
+  <%= f.label :評価 %>
+  <%= f.hidden_field :rating, id: :rating_star, class: "form_rating" %>
 </div>
+ <%= f.submit "保存", class: "btn btn-primary" %>
 <% end %>
+
+<script>
+  $("#star").raty({
+    starOff:  "<%= asset_path("star-off.png") %>",
+    starOn : "<%= asset_path("star-on.png") %>",
+    scoreName: "wine[rating]",
+  });
+</script>
