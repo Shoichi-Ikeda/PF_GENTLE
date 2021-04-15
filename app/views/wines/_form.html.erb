@@ -6,16 +6,16 @@
   <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"form wine_name" %>
 </div>
 <div class="form-group">
-  <%= f.select :kind, Wine.kinds.keys.map {|k| [k, k]}, class: "form wine_kind" %>
+  <%= f.select :kind, Wine.kinds.keys, {}, class: "form wine_kind" %>
 </div>
 <div class="form-group">
-  <%= f.select :country, Wine.countries.keys.map {|k| [k, k]}, class: "form wine_country" %>
+  <%= f.select :country, Wine.countries.keys, {}, class: "form wine_country" %>
 </div>
 <div class="form-group">
-  <%= f.select :variety,  Wine.varieties.keys.map {|k| [k, k]}, class: "form wine_variety" %>
+  <%= f.select :variety, Wine.varieties.keys, {}, class: "form wine_variety" %>
 </div>
 <div class="form-group">
-  <%= f.select :price, Wine.prices.keys.map {|k| [k, k]}, class: "form wine_price" %>
+  <%= f.select :price, Wine.prices.keys, {}, class: "form wine_price" %>
 </div>
 <div class="form-group">
   <%= f.label :生産年 %>

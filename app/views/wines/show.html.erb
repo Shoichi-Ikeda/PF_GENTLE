@@ -1,0 +1,23 @@
+<div class="col-md-8 offset-md-1">
+  <%= attachment_image_tag @wine, :wine_image, :fill, 200, 200 %>
+  <%= image_tag('no_image.jpg') %>
+  <%= @wine.user.name %>
+  <%= @wine.wine_name %>
+  <%= @wine.kind %>
+  <%= @wine.country %>
+  <%= @wine.variety %>
+  <%= @wine.price %>
+  <%= @wine.vintage %>
+  <div id="star-rate-<%= @wine.id %>"></div>
+    <script>
+      $('#star-rate-<%= @wine.id %>').raty({
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        readOnly: true,
+        score: <%= @wine.rating %>,
+      });
+    </script>
+    <% if @wine.user == current_user %>
+    <%= link_to "削除", wine_path(@wine), method: :delete %>
+    <% end %>
+</div>
