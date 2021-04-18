@@ -18,6 +18,7 @@
       });
     </script>
     <% if @wine.user == current_user %>
-    <%= link_to "削除", wine_path(@wine), method: :delete %>
+    <%= link_to "編集", edit_wine_path(@wine), class: "btn btn-sm btn-success edit_wine_#{@wine.id}" %>
+    <%= link_to "削除", wine_path(@wine), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_wine_#{@wine.id}"%>
     <% end %>
 </div>

@@ -13,6 +13,34 @@
  *= require_tree .
  *= require_self
  */
-  @import "bootstrap";
-  @import 'font-awesome-sprockets';
-  @import 'font-awesome';
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif JP', serif;;
+  color: #550000;
+  line-height: 25px;
+}
+
+.navbar-brand, {
+  font-family: 'Rye', cursive;
+  font-size: 50px;
+}
+
+.home-btn, .user-btn, .wine-btn, .signup-btn {
+  margin-right: 80px;
+}
+
+.navbar {
+  padding: 20px;
+}
+
+.footer-text {
+  text-align: center;
+  margin: 0 auto;
+}
+
