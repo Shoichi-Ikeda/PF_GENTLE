@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.all
+    @wine = Wine.new
+  end
+  
   def show
     @user = User.find(params[:id])
     @wines = @user.wines
     @wine = Wine.new
   end
-
-  def index
-    @users = User.all
-    @wine = Wine.new
-  end
-
+  
   def edit
   end
 

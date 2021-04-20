@@ -5,7 +5,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li><%= link_to ' HOME',user_path(current_user),class: 'fas fa-hotel nav-item, nav-link, btn btn-lg btn-outline-light home-btn' %></li>
+          <li><%= link_to ' MY PAGE',user_path(current_user),class: 'fas fa-wine-bottle nav-item, nav-link, btn btn-lg btn-outline-light home-btn' %></li>
           <li><%= link_to ' USERS',users_path,class: 'fas fa-user-tie nav-item, nav-link, btn btn-lg btn-outline-light user-btn' %></li>
           <li><%= link_to ' WINES',wines_path ,class: 'fas fa-wine-glass-alt nav-item, nav-link, btn btn-lg btn-outline-light wine-btn' %></li>
           <li><%= link_to ' LOG OUT', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-item, nav-link, btn btn-lg btn-outline-light logout-btn' %></li>

@@ -1,8 +1,9 @@
 class WinesController < ApplicationController
+
   def index
     @wine = Wine.new
     @wines_all = Wine.all
-    @wines = Wine.page(params[:page]).per(9)
+    @wines = Wine.page(params[:page]).per(12)
   end
 
   def show
@@ -23,16 +24,6 @@ class WinesController < ApplicationController
     @wine.user_id = current_user.id
     @wine.save
     redirect_to wines_path(@wine.id)
-  end
-
-  def edit
-    @wine = Wine.find(params[:id])
-  end
-
-  def update
-    @wine = Wine.find(params[:id])
-    @wine.update(wine_params)
-    redirect_to wines_path
   end
 
   def destroy

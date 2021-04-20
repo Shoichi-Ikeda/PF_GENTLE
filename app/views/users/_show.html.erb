@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="index-bg rounded">
-    <h2 class="h-text">ALL WINE</h2>
+  <div class="user-show-bg rounded">
+    <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "card-image rounded" %>
+    <h2 class="h-text"><%= user.name %> 'S WINE</h2>
   </div>
 </div>
 <div class="index-container">
@@ -33,22 +34,9 @@
               ♥<!--いいね数-->
             </div>
           </div>
-          <div class="row border-top">
-            <div class="col-5 p-0">
-            <%= link_to user_path(wine.user) do %>
-              <%= attachment_image_tag wine.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "rounded user-image" %>
-            </div>
-            <div class="col-7 mt-5 p-0">
-              <%= wine.user.name %>
-            <% end %>
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <% end %>
-  </div>
-  <div class="row pb-2">
-    <div class="mx-auto"><%= paginate @wines %></div>
   </div>
 </div>
