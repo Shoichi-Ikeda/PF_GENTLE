@@ -1,4 +1,6 @@
 class WinesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:destroy]
 
   def index
     @wine = Wine.new
@@ -36,5 +38,12 @@ class WinesController < ApplicationController
 
   def wine_params
     params.require(:wine).permit(:wine_image, :wine_name, :kind, :country, :variety, :vintage, :price, :rating)
+  end
+  
+  def ensure_correct_user
+    @wine = Wine.find(params[:id])
+    unless @wine.user == current_user
+      redirect_to wines_path
+    end
   end
 end

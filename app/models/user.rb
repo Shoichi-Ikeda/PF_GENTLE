@@ -6,4 +6,6 @@ class User < ApplicationRecord
   attachment :profile_image, destroy: false
 
   has_many :wines, dependent: :destroy
+  has_many :cheers, dependent: :destroy
+
 end

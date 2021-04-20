@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'homes#top'
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :wines, only: [:index, :show, :create, :destroy]
+    resource :cheers, only: [:create, :destroy]
+    
 end
