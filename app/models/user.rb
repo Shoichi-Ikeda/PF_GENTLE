@@ -7,5 +7,6 @@ class User < ApplicationRecord
 
   has_many :wines, dependent: :destroy
   has_many :cheers, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
 end
