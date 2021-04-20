@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="show-bg rounded">
+    <h2 class="h-text">WINE DETAIL</h2>
+  </div>
+</div>
+<div class="btn-area">
+  <div class="btn-show">
+    <div class="btn-btn">
+    <% if wines.user == current_user %>
+      <%= link_to "編集する", edit_wine_path(wines) ,class: "btn btn-sm btn-dark" %>
+      <span>&emsp;</span>
+      <%= link_to "削除する", wine_path(wines) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<h4 class="wine-title"><%= wines.wine_name %></h4>
+<div class="show-container">
+  <section class="title-box-show">
+    <%= attachment_image_tag wines, :wine_image, :fill, 300, 300, class: "image rounded" %>
+    <br>
+    <div class="row py-0">
+      <div class="col-4">
+        <%= link_to user_path(wines.user) do %>
+          <%= attachment_image_tag wines.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "rounded user-image" %>
+      </div>
+      <div class="col-8 mt-5 text-center">
+          <%= wines.user.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row border-top m-auto p-0">
+      <div class="col m-1">
+        ♡<!--コメント数-->
+      </div>
+      <div class="col m-1">
+        ♥<!--いいね数-->
+      </div>
+    </div>
+  </section>
+  <section class="detail-box-show">
+    <table border="0">
+      <tbody class="text-center">
+        <tr>
+          <td>種類</td>
+          <td><%= wines.kind %></td>
+        </tr>
+        <tr>
+          <td>生産国</td>
+          <td><%= wines.country %></td>
+        </tr>
+        <tr>
+          <td>主な品種</td>
+          <td><%= wines.variety %></td>
+        </tr>
+        <tr>
+          <td>生産年</td>
+          <td><%= wines.vintage %> 年</td>
+        </tr>
+        <tr>
+          <td>価格帯</td>
+          <td><%= wines.price %></td>
+        </tr>
+        <tr>
+          <td>評価</td>
+          <td class="star m-2" id="star-<%= wines.id %>">
+            <script>
+            $("#star-<%= wines.id %>").raty({
+              starOff: "<%= asset_path("star-off.png") %>",
+              starOn : "<%= asset_path("star-on.png") %>",
+              readOnly: true,
+              score: <%= wines.rating %>,
+            });
+            </script>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

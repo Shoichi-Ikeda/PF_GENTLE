@@ -1,8 +1,20 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h1>EDITING WINE</h1>
-  		<%= render 'form', wine: @wine %>
-  		<%= link_to 'BACK', wines_path, class: "back" %>
+<div class="container-fuild">
+  <div class="row ml-3">
+    <div class="col-3 bg-side rounded">
+      <div class="sidebar_content">
+        流れてもいいコンテンツ
+        <!--AmazonAPI-->
+      </div>
+      <div class="sidebar_fixed">
+        <div class="edit-user">
+        aaa<!--render "user/info", user: current_user-->
+        </div>
+        <div class="tast-form">
+        </div>
+      </div>
+    </div>
+    <div class="col-9 bg-main">
+      <%= render "edit", wine: @wine %>
+    </div>
   </div>
 </div>

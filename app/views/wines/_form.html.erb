@@ -1,37 +1,42 @@
-<%= form_with model: wine, local: true do |f| %>
-<div class="form-group rounded">
-  <%= f.attachment_field :wine_image, class: "form wine_image" %>
-</div>
-<div class="form-group rounded">
-  <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"form wine_name" %>
-</div>
-<div class="form-group rounded">
-  <%= f.select :kind, Wine.kinds.keys, {}, class: "form wine_kind" %>
-</div>
-<div class="form-group rounded">
-  <%= f.select :country, Wine.countries.keys, {}, class: "form wine_country" %>
-</div>
-<div class="form-group rounded">
-  <%= f.select :variety, Wine.varieties.keys, {}, class: "form wine_variety" %>
-</div>
-<div class="form-group rounded">
-  <%= f.select :price, Wine.prices.keys, {}, class: "form wine_price" %>
-</div>
-<div class="form-group rounded">
+<div class="tasting-form">
+  <h2 class="new-form">NEW TASTING</h2>
+  <%= form_with model: wine, local: true do |f| %>
+  <div class="my-3">
+    <%= f.attachment_field :wine_image, class: "n-form wine_image" %>
+  </div>
+  <div class="my-3">
+    <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"n-form wine_name" %>
+  </div>
+  <div class="my-3">
+    <%= f.select :kind, Wine.kinds.keys, {}, class: "n-form wine_kind" %>
+  </div>
+  <div class="my-3">
+    <%= f.select :country, Wine.countries.keys, {}, class: "n-form wine_country" %>
+  </div>
+  <div class="my-3">
+    <%= f.select :variety, Wine.varieties.keys, {}, class: "n-form wine_variety" %>
+  </div>
+  <div class="my-3">
+    <%= f.select :price, Wine.prices.keys, {}, class: "n-form wine_price" %>
+  </div>
+  <div class="my-2">
   <%= f.label :生産年 %>
-  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "form wine_vintage" %>
-</div>
-<div class="form-group rounded" id="star">
-  <%= f.label :評価 %>
-  <%= f.hidden_field :rating, id: :rating_star, class: "form_rating" %>
-</div>
- <%= f.submit "保存", class: "btn btn-primary" %>
-<% end %>
+  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "n-form wine_vintage", :order => [:year] %>
+  </div>
+  <div class="my-2" id="star">
+    <%= f.label :評価 %>
+    <%= f.hidden_field :rating, id: :rating_star, class: "form_rating" %>
+  </div>
+  <div class="pb-3">
+    <%= f.submit "投稿する", class: "btn btn-success" %>
+  </div>
+  <% end %>
 
-<script>
+  <script>
   $("#star").raty({
     starOff:  "<%= asset_path("star-off.png") %>",
     starOn : "<%= asset_path("star-on.png") %>",
     scoreName: "wine[rating]",
   });
-</script>
+  </script>
+</div>

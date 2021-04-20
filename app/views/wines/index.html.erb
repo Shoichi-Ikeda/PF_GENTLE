@@ -1,19 +1,21 @@
 <div class="container-fuild">
-  <div class="row">
-    <div class="col-3  bg-side">
-      <div class="sidebar_content">
-        流れてもいいコンテンツ
-        <!--AmazonAPI-->
+  <div class="row ml-3">
+    <div class="col-3 bg-side rounded">
+      <div class="sidebar_content py-5">
+        AmazonAPI
       </div>
-      <div class="sidebar_fixed m-3">
-        <!--render "user/info", user: current_user-->
-        <h2 class="new-form">NEW TASTING</h2>
-        <%= render "form", wine: @wine %>
+      <div class="sidebar_fixed mx-4">
+        <div class="edit-user">
+        aaa<!--render "user/info", user: current_user-->
+        </div>
+        <div class="tast-form mx-4">
+          <%= render "form", wine: @wine %>
+        </div>
       </div>
     </div>
     <div class="col-9 bg-main">
-      <% render "layouts/errors", obj: @wine %>
-      <%= render "index", wines: @wines %>
+      <%= render "layouts/errors", obj: @wine %>
+      <%= render "index", wines: @wines_all %>
     </div>
   </div>
 </div>

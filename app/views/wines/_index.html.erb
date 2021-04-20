@@ -1,6 +1,6 @@
 <div class="container">
   <div class="index-bg rounded">
-    <h2 class="index-text">ALL WINE</h2>
+    <h2 class="h-text">ALL WINE</h2>
   </div>
 </div>
 <div class="index-container">
@@ -15,11 +15,11 @@
           <%= wine.wine_name %>
           <% end %>
           </p>
-          <p class="star m-2" id="star-<%= wine.id %>">
+          <p class="star m-2" id="star<%= wine.id %>">
             <script>
-            $('#star-<%= wine.id %>').raty({
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
+            $("#star<%= wine.id %>").raty({
+              starOff: "<%= asset_path("star-off.png") %>",
+              starOn : "<%= asset_path("star-on.png") %>",
               readOnly: true,
               score: <%= wine.rating %>,
             });
@@ -33,12 +33,12 @@
               ♥<!--いいね数-->
             </div>
           </div>
-          <div class="row border-top m-auto">
-            <div class="col-5">
+          <div class="row border-top">
+            <div class="col-5 p-0">
             <%= link_to user_path(wine.user) do %>
               <%= attachment_image_tag wine.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "rounded user-image" %>
             </div>
-            <div class="col-7 mt-5">
+            <div class="col-7 mt-5 p-0">
               <%= wine.user.name %>
             <% end %>
             </div>
@@ -47,5 +47,8 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="row pb-2">
+    <div class="mx-auto"><%= paginate @wines %></div>
   </div>
 </div>

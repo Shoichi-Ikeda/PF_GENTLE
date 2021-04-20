@@ -1,23 +1,17 @@
 // Place all the styles related to the Wines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .bg-side {
-  background-color:rgba(20, 20, 20, 0.7);
+  background-color: #fff;
 }
 
-.bg-main {
-  background-color: #550000;
+.sidebar_content {
+  margin-bottom: 50px;
 }
 
 .sidebar_fixed {
   position: sticky;
-  top: 60px;
-  padding: 10px;
-}
-
-.sidebar_content {
-  margin-bottom: 100px;
+  top: 37%;
 }
 
 .new-form {
@@ -36,7 +30,19 @@
   align-items: center;
 }
 
-.index-text {
+.show-bg {
+  background-image: url(show_image.jpg);
+  background-color: rgba(255,255,255,0.5);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position:  20% 50%;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.h-text {
   font-family: 'Rye', cursive;
 }
 
@@ -48,7 +54,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 90%;
-  margin: 60px auto;
+  margin: 60px auto 10px;
   justify-content: center;
 }
 
@@ -62,7 +68,7 @@
   margin-right: 0;
 }
 
-.index-container::after {
+index-container::after {
   display: block;
   content: "";
   width: 50%;
@@ -75,5 +81,52 @@
 
 .card-title {
   font-size: 17px;
+}
+
+.btn-show {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.btn-btn {
+  margin-left: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.wine-title {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 15px 15px 0 15px;
+  border-radius: 3px 3px 0 0;
+  font-weight: bold;
+}
+
+.show-container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: black;
+  padding: 15px 15px 15px 15px;
+  border-radius: 0 0 3px 3px;
+}
+
+.title-box-show div {
+  color: #fff;
+  padding: 10px;
+}
+
+.detail-box-show {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
+
+td {
+  padding: 20px;
 }
 

@@ -1,24 +1,21 @@
-<div class="col-md-8 offset-md-1">
-  <%= attachment_image_tag @wine, :wine_image, :fill, 200, 200 %>
-  <%= image_tag('no_image.jpg') %>
-  <%= @wine.user.name %>
-  <%= @wine.wine_name %>
-  <%= @wine.kind %>
-  <%= @wine.country %>
-  <%= @wine.variety %>
-  <%= @wine.price %>
-  <%= @wine.vintage %>
-  <div id="star-rate-<%= @wine.id %>"></div>
-    <script>
-      $('#star-rate-<%= @wine.id %>').raty({
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        readOnly: true,
-        score: <%= @wine.rating %>,
-      });
-    </script>
-    <% if @wine.user == current_user %>
-    <%= link_to "編集", edit_wine_path(@wine), class: "btn btn-sm btn-success edit_wine_#{@wine.id}" %>
-    <%= link_to "削除", wine_path(@wine), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger destroy_wine_#{@wine.id}"%>
-    <% end %>
+<div class="container-fuild">
+  <div class="row ml-3">
+    <div class="col-3 bg-side rounded">
+      <div class="sidebar_content">
+        流れてもいいコンテンツ
+        <!--AmazonAPI-->
+      </div>
+      <div class="sidebar_fixed">
+        <div class="edit-user">
+        aaa<!--render "user/info", user: current_user-->
+        </div>
+        <div class="tast-form mx-4">
+          <%= render "form", wine: @wine %>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 bg-main">
+      <%= render "show", wines: @wines %>
+    </div>
+  </div>
 </div>

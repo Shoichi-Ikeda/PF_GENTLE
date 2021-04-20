@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="show-bg rounded">
+    <h2 class="h-text">EDITING WINE</h2>
+  </div>
+</div>
+<div class="btn-area">
+  <div class="btn-show">
+    <div class="btn-btn">
+      <%= link_to "戻る", wine_path(wine) ,class: "btn btn-sm btn-info" %>
+      <span>&emsp;</span>
+      <%= link_to "削除する", wine_path(wine) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
+    </div>
+  </div>
+</div>
+<h4 class="wine-title">
+  <%= form_with model: wine, local: true do |f| %>
+    <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"form wine_name" %></h4>
+<div class="show-container">
+  <section class="title-box-show">
+    <%= f.attachment_field :wine_image, class: "image rounded" %>
+  </section>
+  <section class="detail-box-show">
+    <table border="0">
+      <tbody class="text-center">
+        <tr>
+          <td>種類</td>
+          <td><%= f.select :kind, Wine.kinds.keys, {}, class: "form wine_kind" %></td>
+        </tr>
+        <tr>
+          <td>生産国</td>
+          <td><%= f.select :country, Wine.countries.keys, {}, class: "form wine_country" %></td>
+        </tr>
+        <tr>
+          <td>主な品種</td>
+          <td><%= f.select :variety, Wine.varieties.keys, {}, class: "form wine_variety" %></td>
+        </tr>
+        <tr>
+          <td>生産年</td>
+          <td><%#= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "form wine_vintage" %></td>
+        </tr>
+        <tr>
+          <td>価格帯</td>
+          <td><%= f.select :price, Wine.prices.keys, {}, class: "form wine_price" %></td>
+        </tr>
+        <tr>
+          <td>評価</td>
+          <td class="star m-2" id="star<%= wine.id %>">
+            <%= f.hidden_field :rating, id: :rating_star, class: "form_rating" %>
+            <script>
+            $("#star<%= wine.id %>").raty({
+              starOff: "<%= asset_path("star-off.png") %>",
+              starOn : "<%= asset_path("star-on.png") %>",
+              scoreName: "wine[rating]",
+            });
+            </script>
+          </td>
+          <td class="edit-btn">
+            <%= f.submit "編集を投稿する", class: "btn btn-success " %>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
+  </section>
+</div>
+  </div>
+  <div class="form-group rounded">
+  </div>
+
