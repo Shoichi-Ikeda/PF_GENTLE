@@ -23,11 +23,7 @@ class WinesController < ApplicationController
     @wine = Wine.new(wine_image: wine_image, wine_name: wine_name, kind: kind, country: country, variety: variety, vintage: vintage, price: price, rating: rating)
     @wine.user_id = current_user.id
     @wine.save
-<<<<<<< HEAD
     redirect_to wine_path(@wine)
-=======
-    redirect_to wines_path(@wine.id)
->>>>>>> 708efdf087972042242051a7e5fdce925a140426
   end
 
   def destroy
