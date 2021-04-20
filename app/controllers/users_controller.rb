@@ -12,14 +12,14 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @wine = Wine.new
+    @user = User.find(params[:id])
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user)
-    else
-      render "edit"
-    end
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
   
   def destroy

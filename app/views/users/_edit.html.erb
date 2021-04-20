@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="user-edit-bg rounded">
+    <h2 class="h-text">EDITING USER</h2>
+  </div>
+</div>
+<div class="user-edit-container">
+  <div class="row justify-content-center">
+    <%= form_with model:user, local:true do |f| %>
+    <div class="field">
+      <div class="form-group login-form text-center">
+        <div class="bg-warning rounded p-1 px-2">登録されているお名前</div>
+      </div>
+    </div>
+    <div class="field ">
+        <%= f.text_field :name, autofocus: true, placeholder: "お名前", class: "text-center edit-form w-100" %>
+    </div>
+    <div class="field">
+      <div class="form-group login-form text-center">
+        <div class="bg-warning rounded p-1 px-2">登録されているプロフィール画像</div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="form-group login-form text-center">
+        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class: "text-center" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="form-group login-form text-center">
+        <div class="bg-warning rounded p-1 px-2">新しいプロフィール画像を選択</div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="form-group login-form text-center">
+        <%= f.attachment_field :profile_image, placeholder: "画像", class: "w-100 my-3" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "変更する", class: "btn btn-success w-100 text-center" %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -44,6 +44,18 @@
   align-items: center;
 }
 
+.user-edit-bg {
+  background-image: url(user_edit_image.jpg);
+  background-color: rgba(255,255,255,0.5);
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position:  20% 50%;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .form-group input:focus {
  background-color: rgb(252, 210, 132);
 }
@@ -67,6 +79,11 @@
   width: 90%;
   margin: 60px auto 10px;
   justify-content: center;
+}
+
+.user-edit-container {
+  width: 90%;
+  margin: 30px auto 10px;
 }
 
 .user-info {
