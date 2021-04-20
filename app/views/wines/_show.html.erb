@@ -7,9 +7,11 @@
   <div class="btn-show">
     <div class="btn-btn">
     <% if wines.user == current_user %>
-      <%= link_to "編集する", edit_wine_path(wines) ,class: "btn btn-sm btn-dark" %>
+      <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
       <span>&emsp;</span>
-      <%= link_to "削除する", wine_path(wines) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
+      <%= link_to "投稿を削除する", wine_path(wines) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
+    <% else %>
+      <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
     </div>
     <% end %>
   </div>
