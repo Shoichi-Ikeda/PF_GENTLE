@@ -1,0 +1,5 @@
+<% if wine.cheered_by?(current_user) %>
+  <%= link_to wine.cheers.count, wine_cheers_path(wine), method: :delete, class: "fas fa-glass-cheers glass_red" %>
+<% else %>
+  <%= link_to wine.cheers.count, wine_cheers_path(wine), method: :post, class: "fas fa-glass-cheers glass_blue" %>
+<% end %>
