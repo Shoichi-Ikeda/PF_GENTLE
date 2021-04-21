@@ -32,11 +32,13 @@
       </div>
     </div>
     <div class="row border-top m-auto p-0">
-      <div class="col m-1">
-        ♡<!--コメント数-->
+      <div class="col m-1 comment-btn">
+        <a class="ml-5 fas fa-comment fa-lg glass_blue">
+          <%= @wine.post_comments.count %>
+        </a>
       </div>
       <div class="col m-1 cheer-btn">
-        <%= render "cheers/cheer-btn", wine: @wines %>
+        <%= render "cheers/cheer-btn", wine: @wine %>
       </div>
     </div>
   </section>
@@ -79,4 +81,7 @@
       </tbody>
     </table>
   </section>
+</div>
+<div class="container">
+  <%= render "post_comments/comment", wine: @wine, post_comment: @post_comment %>
 </div>

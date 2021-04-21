@@ -33,11 +33,15 @@
           </div>
           <div class="card-body py-1">
             <div class="row border-top py-1">
-              <div class="col">
-                ♡<!--コメント数-->
+              <div class="col m-1 comment-btn">
+                <div class="fas fa-comment glass_blue">
+                  <%= wine.post_comments.count %>
+                </div>
               </div>
-              <div class="col">
-                ♥<!--いいね数-->
+              <div class="col m-1 cheer-btn">
+                <div class="fas fa-glass-cheers glass_blue">
+                  <%= wine.cheers.count %>
+                </div>
               </div>
             </div>
           </div>

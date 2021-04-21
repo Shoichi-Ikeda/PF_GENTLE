@@ -5,11 +5,11 @@
         AmazonAPI
       </div>
       <div class="sidebar_fixed">
-          <%= render "form", wine: @wine %>
+          <%= render "form", wine: Wine.new %>
       </div>
     </div>
     <div class="col-9 bg-main">
-      <%= render "show", wines: @wines %>
+      <%= render "show", wines: @wine %>
     </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 class Wine < ApplicationRecord
   belongs_to :user
   attachment :wine_image
-  has_many :post_comments, dependent: :destroy
   has_many :cheers, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
   
   def cheered_by?(user)
     cheers.where(user_id: user.id).exists?

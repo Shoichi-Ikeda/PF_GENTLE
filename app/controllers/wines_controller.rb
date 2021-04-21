@@ -9,8 +9,8 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.new
-    @wines = Wine.find(params[:id])
+    @wine = Wine.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def create

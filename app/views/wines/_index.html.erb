@@ -26,8 +26,10 @@
             </script>
           </p>
           <div class="row border-top m-auto">
-            <div class="col m-1">
-              ♡<!--コメント数-->
+            <div class="col m-1 comment-btn">
+              <div class="fas fa-comment glass_blue">
+                <%= wine.post_comments.count %>
+              </div>
             </div>
             <div class="col m-1">
               <%= render "cheers/cheer-btn-index", wine: wine %>
