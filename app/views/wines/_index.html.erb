@@ -17,6 +17,7 @@
       <% end %>
           <p class="star m-2" id="star<%= wine.id %>">
             <script>
+            $("#star<%= wine.id %>").empty();
             $("#star<%= wine.id %>").raty({
               starOff: "<%= asset_path("star-off.png") %>",
               starOn : "<%= asset_path("star-on.png") %>",

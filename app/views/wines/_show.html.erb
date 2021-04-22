@@ -69,6 +69,7 @@
           <td>評価</td>
           <td class="star m-2" id="star-<%= wines.id %>">
             <script>
+            $('#star<%= wines.id %>').empty();
             $("#star-<%= wines.id %>").raty({
               starOff: "<%= asset_path("star-off.png") %>",
               starOn : "<%= asset_path("star-on.png") %>",
