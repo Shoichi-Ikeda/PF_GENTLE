@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # devise利用の機能が使われる場合、その前にconfigure_permitted_parametersが実行される。
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     wines_path
   end
 

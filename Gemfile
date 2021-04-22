@@ -66,12 +66,12 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2.1'
+gem 'rakuten_web_service'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'rakuten_web_service'
-
+gem 'pry-byebug', group: :development
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

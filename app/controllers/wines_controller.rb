@@ -14,15 +14,16 @@ class WinesController < ApplicationController
   end
 
   def create
-    wine_image = params[:wine]["wine_image"]
-    wine_name = params[:wine]["wine_name"]
-    kind = params[:wine]["kind"]
-    country = params[:wine]["country"]
-    variety = params[:wine]["variety"]
-    vintage = params[:wine]["vintage(1i)"]
-    price = params[:wine]["price"]
-    rating = params[:wine]["rating"]
-    @wine = Wine.new(wine_image: wine_image, wine_name: wine_name, kind: kind, country: country, variety: variety, vintage: vintage, price: price, rating: rating)
+    wine_image = params[:wine]['wine_image']
+    wine_name = params[:wine]['wine_name']
+    kind = params[:wine]['kind']
+    country = params[:wine]['country']
+    variety = params[:wine]['variety']
+    vintage = params[:wine]['vintage(1i)']
+    price = params[:wine]['price']
+    rating = params[:wine]['rating']
+    @wine = Wine.new(wine_image: wine_image, wine_name: wine_name, kind: kind, country: country, variety: variety,
+                     vintage: vintage, price: price, rating: rating)
     @wine.user_id = current_user.id
     @wine.save
     redirect_to wine_path(@wine)
@@ -42,8 +43,6 @@ class WinesController < ApplicationController
 
   def ensure_correct_user
     @wine = Wine.find(params[:id])
-    unless @wine.user == current_user
-      redirect_to wines_path
-    end
+    redirect_to wines_path unless @wine.user == current_user
   end
 end

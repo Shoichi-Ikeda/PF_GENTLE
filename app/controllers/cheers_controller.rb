@@ -1,5 +1,4 @@
 class CheersController < ApplicationController
-
   def create
     @wine = Wine.find(params[:wine_id])
     cheer = @wine.cheers.new(user_id: current_user.id)

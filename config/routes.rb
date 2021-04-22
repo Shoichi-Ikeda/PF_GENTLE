@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'goods/search'
 
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
-  resources :wines, only: [:index, :show, :create, :destroy] do
-    resource :cheers, only: [:create, :destroy]
-    resources :post_comments, only:[:create, :destroy]
+  resources :users, only: %i[index show edit update destroy]
+  resources :wines, only: %i[index show create destroy] do
+    resource :cheers, only: %i[create destroy]
+    resources :post_comments, only: %i[create destroy]
   end
 end
