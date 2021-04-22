@@ -1,31 +1,30 @@
-<div class="row">
-  <div class="col">
-    <% form_with model: [@wine, @post_comment], local: true do |f| %>
-    <div class="my-3">
-      <%= f.text_area :comment, :placeholder => "コメントを入力", size: "80x10" %>
-    </div>
-    <div class="my-2">
-      <%= f.submit "コメントを投稿する",　class: "btn btn-success w-100" %>
-    </div>
-    <% end %>
+<div class="comment-text">
+  <%= form_with model: [wine, post_comment], local: true do |f| %>
+  <div class="my-3">
+    <%= f.text_area :comment, :placeholder => "コメントを入力", size: "40x4" %>
   </div>
-  <div class="col">
+  <div class="my-2">
+    <%= f.submit "コメントを投稿する",　class: "btn btn-success w-100" %>
+  </div>
+  <% end %>
+</div>
+  <div class="col-8">
     <table>
       <% @wine.post_comments.each do |post_comment| %>
         <% post_comment_user = post_comment.user %>
         <tr>
-          <td>
+          <td class="text-center">
             <%= link_to user_path(post_comment_user), class: "user_#{post_comment_user.id}" do %>
-              <%= attachment_image_tag post_comment_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100", class: "rounded user-image" %>
+              <%= attachment_image_tag post_comment_user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size: "40x40", class: "rounded user-image" %>
             <br>
               <%= post_comment_user.name %>
             <% end %>
           </td>
-          <td>
+          <td class="px-0 w-50">
             <%= post_comment.comment %>
           </td>
           <% if current_user == post_comment_user %>
-          <td>
+          <td class="comment-delete-btn">
             <%= link_to "削除する", wine_post_comment_path(post_comment.wine_id, post_comment.id), class: "btn-sm btn-danger", method: :delete %>
           </td>
           <% end %>

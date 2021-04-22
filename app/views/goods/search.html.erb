@@ -1,0 +1,21 @@
+<div class='content'>
+  <div id="search-box">
+    <%= form_with url: goods_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, class: "form-control" %>
+      <%= f.submit '検索', class: "form-control btn btn-sm btn-success" %>
+    <% end %>
+  </div>
+  <div class="result">検索結果</div>
+  <div id="good_list">
+    <% if @items.present? %>
+      <% @items.each do |item| %>
+      <div class="list">
+        <% if item.image_url %>
+          <%= link_to (image_tag(item.image_url, style: "width: 70px;height: 100px;display: inline-block;")), item.url %>
+        <%end%>
+        <%= item.title %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -17,8 +17,8 @@
   </div>
 </div>
 <h4 class="wine-title"><%= wines.wine_name %></h4>
-<div class="show-container">
-  <section class="title-box-show">
+<div class="show-container pb-0">
+  <div class="title-box-show">
     <%= attachment_image_tag wines, :wine_image, :fill, 300, 300,fallback: "no_wine.jpg", size: "300x300", class: "image rounded" %>
     <br>
     <div class="row py-0">
@@ -37,12 +37,12 @@
           <%= @wine.post_comments.count %>
         </a>
       </div>
-      <div class="col m-1 cheer-btn">
+      <div class="col m-1  cheer-btn">
         <%= render "cheers/cheer-btn", wine: @wine %>
       </div>
     </div>
-  </section>
-  <section class="detail-box-show">
+  </div>
+  <div class="detail-box-show">
     <table border="0">
       <tbody class="text-center">
         <tr>
@@ -80,8 +80,8 @@
         </tr>
       </tbody>
     </table>
-  </section>
+  </div>
 </div>
-<div class="container">
+<div class="show-container pt-0">
   <%= render "post_comments/comment", wine: @wine, post_comment: @post_comment %>
 </div>

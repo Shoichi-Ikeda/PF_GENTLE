@@ -1,8 +1,8 @@
 <div class="container-fuild">
   <div class="row ml-3">
     <div class="col-3 bg-side rounded">
-      <div class="sidebar_content">
-        AmazonAPI
+      <div class="sidebar_content py-3">
+        <%= render template: "goods/search" %>
       </div>
       <div class="sidebar_fixed">
           <%= render "form", wine: Wine.new %>
