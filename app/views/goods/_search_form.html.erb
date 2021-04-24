@@ -1,0 +1,12 @@
+<div class="rakuten-api">
+  <div id="search-box">
+    <h3 class="new-form">RAKUTEN SEARCH</h3>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field 'keyword', placeholder: "検索ワードを入力", class: "rakuten-search-form" %>
+      <%= f.submit "検索", class: "rakuten-search-form  btn btn-sm btn-success" %>
+    <% end %>
+  </div>
+  <div class="alert">
+    <%= flash[:danger] %>
+  </div>
+</div>

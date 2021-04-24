@@ -2,13 +2,13 @@
   <div class="row ml-3">
     <div class="col-3 bg-side rounded">
       <div class="sidebar_content py-3">
-        <%= render template: "goods/search" %>
+        <%= render "goods/search_form" %>
       </div>
       <div class="sidebar_fixed">
         <%= render "form", wine: @wine %>
       </div>
     </div>
-    <div class="col-9 bg-main">
+    <div class=" col-9 bg-main">
       <%= render "index", wines: @wines_all %>
     </div>
   </div>

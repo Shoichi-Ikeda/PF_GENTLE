@@ -7,6 +7,8 @@ class WinesController < ApplicationController
     @wines_all = Wine.all
     @wines = Wine.page(params[:page]).per(12)
   end
+  
+  
 
   def show
     @wine = Wine.find(params[:id])
