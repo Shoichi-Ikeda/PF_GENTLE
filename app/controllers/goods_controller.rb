@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class GoodsController < ApplicationController
   def search
     if params[:keyword]
@@ -5,7 +6,7 @@ class GoodsController < ApplicationController
       if items.valid?
         @items = RakutenWebService::Ichiba::Item.search(keyword: items.keyword)
       else
-        flash[:danger] = "※検索ワードを入力してください"
+        flash[:search_danger] = '※検索ワードを入力してください'
         redirect_to request.referer
       end
     end

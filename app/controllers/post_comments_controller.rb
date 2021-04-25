@@ -1,15 +1,17 @@
+# frozen_string_literal: true
 class PostCommentsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def create
     @wine = Wine.find(params[:wine_id])
     @post_comment = PostComment.new(post_comment_params)
     @post_comment.wine_id = @wine.id
     @post_comment.user_id = current_user.id
     if @post_comment.save
-      redirect_to wine_path(@wine.id)
+      redirect_to request.referer
     else
-      render 'wines/show'
+      flash[:comment_danger] = '※コメントを入力してください'
+      redirect_to request.referer
     end
   end
 
@@ -21,7 +23,6 @@ class PostCommentsController < ApplicationController
   end
 
   private
-
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end

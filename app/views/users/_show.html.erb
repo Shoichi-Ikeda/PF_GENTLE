@@ -7,10 +7,10 @@
         <span class="">email : <%= current_user.email %></span>
         <br>
         <%= link_to edit_user_path(current_user), class: "user-edit" do %>
-        <i class="btn btn-info fas fa-user-cog">編集</i>
+          <i class="btn btn-info fas fa-user-cog">編集</i>
         <% end %>
         <%= link_to user_path(current_user), method: :delete, data:{ confirm: "退会すると全ての投稿データが失われます"} do %>
-        <i class="btn btn-warning fas fa-door-open">退会</i>
+          <i class="btn btn-warning fas fa-door-open">退会</i>
         <% end %>
       <% end %>
     </div>
@@ -22,44 +22,42 @@
 <div class="index-container">
   <div class="row">
     <% @wines.each do |wine| %>
-    <div class="col-3">
-      <div class="card-deck text-center d-flex flex-lg-wrap">
-        <div class="card">
-        <%= link_to wine_path(wine.id) do %>
-          <%= attachment_image_tag wine, :wine_image, :fill, 200, 200, fallback: "no_wine.jpg", size: "200x200", class: "card-image rounded" %>
-          <div class="card-body px-1">
-          <h5 class="card-title py-0"><%= wine.wine_name %></h5>
-          <% end %>
-          </div>
-          <div class="card-body py-1">
-            <div class="row border-top py-1">
-              <div class="col m-1 comment-btn">
-                <div class="fas fa-comment glass_blue">
-                  <%= wine.post_comments.count %>
+      <div class="col-3">
+        <div class="card-deck text-center d-flex flex-lg-wrap">
+          <div class="card">
+          <%= link_to wine_path(wine.id) do %>
+            <%= attachment_image_tag wine, :wine_image, :fill, 200, 200, fallback: "no_wine.jpg", size: "200x200", class: "card-image rounded" %>
+            <div class="card-body px-1">
+              <h5 class="card-title py-0"><%= wine.wine_name %></h5>
+            <% end %>
+            </div>
+            <div class="card-body py-1">
+              <div class="row border-top py-1">
+                <div class="col m-1 comment-btn">
+                  <div class="fas fa-comment glass_blue">
+                    <%= wine.post_comments.count %>
+                  </div>
                 </div>
-              </div>
-              <div class="col m-1 cheer-btn">
-                <div class="fas fa-glass-cheers glass_blue">
-                  <%= wine.cheers.count %>
+                <div class="col m-1">
+                  <%= render "cheers/cheer-btn-index", wine: wine %>
                 </div>
               </div>
             </div>
+            <div class="card-footer">
+              <p class="star m-2" id="star<%= wine.id %>">
+            </div>
+            <script>
+            $("#star<%= wine.id %>").empty();
+              $("#star<%= wine.id %>").raty({
+                starOff: "<%= asset_path("star-off.png") %>",
+                starOn : "<%= asset_path("star-on.png") %>",
+                readOnly: true,
+                score: <%= wine.rating %>,
+              });
+            </script>
           </div>
-          <div class="card-footer">
-            <p class="star m-2" id="star<%= wine.id %>">
-          </div>
-          <script>
-          $("#star<%= wine.id %>").empty();
-          $("#star<%= wine.id %>").raty({
-            starOff: "<%= asset_path("star-off.png") %>",
-            starOn : "<%= asset_path("star-on.png") %>",
-            readOnly: true,
-            score: <%= wine.rating %>,
-          });
-          </script>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>

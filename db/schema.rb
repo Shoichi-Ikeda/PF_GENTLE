@@ -10,52 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_422_063_709) do
-  create_table 'cheers', force: :cascade do |t|
-    t.integer 'user_id'
-    t.integer 'wine_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2021_04_22_063709) do
+
+  create_table "cheers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "wine_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'goods', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "goods", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'post_comments', force: :cascade do |t|
-    t.text 'comment'
-    t.integer 'user_id'
-    t.integer 'wine_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "wine_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.string 'name'
-    t.string 'profile_image_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "profile_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table 'wines', force: :cascade do |t|
-    t.string 'wine_image_id'
-    t.string 'wine_name'
-    t.string 'kind'
-    t.string 'country'
-    t.string 'variety'
-    t.string 'vintage'
-    t.string 'price'
-    t.string 'rating'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'user_id'
+  create_table "wines", force: :cascade do |t|
+    t.string "wine_image_id"
+    t.string "wine_name"
+    t.string "kind"
+    t.string "country"
+    t.string "variety"
+    t.string "vintage"
+    t.string "price"
+    t.string "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_id"
   end
+
 end

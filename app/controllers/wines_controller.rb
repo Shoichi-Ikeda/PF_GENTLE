@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WinesController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:destroy]
@@ -7,12 +9,11 @@ class WinesController < ApplicationController
     @wines_all = Wine.all
     @wines = Wine.page(params[:page]).per(12)
   end
-  
-  
 
   def show
     @wine = Wine.find(params[:id])
     @post_comment = PostComment.new
+    @wines = Wine.new
   end
 
   def create
@@ -24,11 +25,22 @@ class WinesController < ApplicationController
     vintage = params[:wine]['vintage(1i)']
     price = params[:wine]['price']
     rating = params[:wine]['rating']
-    @wine = Wine.new(wine_image: wine_image, wine_name: wine_name, kind: kind, country: country, variety: variety,
-                     vintage: vintage, price: price, rating: rating)
+    @wine = Wine.new(
+      wine_image: wine_image,
+      wine_name: wine_name,
+      kind: kind,
+      country: country,
+      variety: variety,
+      vintage: vintage,
+      price: price,
+      rating: rating
+    )
     @wine.user_id = current_user.id
-    @wine.save
-    redirect_to wine_path(@wine)
+    if @wine.save
+      redirect_to wine_path(@wine)
+    else flash[:form_danger] = '※ワイン名を入力してください'
+      redirect_to request.referer
+    end
   end
 
   def destroy
@@ -38,9 +50,17 @@ class WinesController < ApplicationController
   end
 
   private
-
   def wine_params
-    params.require(:wine).permit(:wine_image, :wine_name, :kind, :country, :variety, :vintage, :price, :rating)
+    params.require(:wine).permit(
+      :wine_image,
+      :wine_name,
+      :kind,
+      :country,
+      :variety,
+      :vintage,
+      :price,
+      :rating
+    )
   end
 
   def ensure_correct_user

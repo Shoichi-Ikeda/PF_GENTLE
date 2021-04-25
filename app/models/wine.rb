@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Wine < ApplicationRecord
   belongs_to :user
   attachment :wine_image
@@ -7,6 +9,8 @@ class Wine < ApplicationRecord
   def cheered_by?(user)
     cheers.where(user_id: user.id).exists?
   end
+
+  validates :wine_name, presence: true
 
   enum kind: {
     ワインの種類を選択: '0',

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: %i[edit update destroy]
@@ -20,8 +21,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      redirect_to request.referer
+    end
   end
 
   def destroy
@@ -31,7 +35,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :profile_image)
   end

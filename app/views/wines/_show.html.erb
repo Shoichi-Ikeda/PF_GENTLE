@@ -6,14 +6,14 @@
 <div class="btn-area">
   <div class="btn-show">
     <div class="btn-btn">
-    <% if wines.user == current_user %>
-      <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
-      <span>&emsp;</span>
-      <%= link_to "投稿を削除する", wine_path(wines) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
-    <% else %>
-      <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
+      <% if wines.user == current_user %>
+        <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
+        <span>&emsp;</span>
+        <%= link_to "投稿を削除する", wine_path(wines) ,class: "btn btn-sm btn-danger", method: :delete, data:{ confirm: '本当に削除しますか?'} %>
+      <% else %>
+        <%= link_to "一覧に戻る", wines_path(wines) ,class: "btn btn-sm btn-dark" %>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 <h4 class="wine-title"><%= wines.wine_name %></h4>
@@ -68,15 +68,15 @@
         <tr>
           <td>評価</td>
           <td class="star m-2" id="star-<%= wines.id %>">
-            <script>
-            $('#star<%= wines.id %>').empty();
+          <script>
+          $('#star<%= wines.id %>').empty();
             $("#star-<%= wines.id %>").raty({
               starOff: "<%= asset_path("star-off.png") %>",
               starOn : "<%= asset_path("star-on.png") %>",
               readOnly: true,
               score: <%= wines.rating %>,
             });
-            </script>
+          </script>
           </td>
         </tr>
       </tbody>

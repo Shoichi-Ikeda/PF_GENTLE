@@ -1,5 +1,8 @@
 <div class="tasting-form">
   <h2 class="new-form">NEW TASTING</h2>
+  <div class="f-alert">
+    <%= flash[:form_danger] %>
+  </div>
   <%= form_with model: wine, local: true do |f| %>
   <div class="my-3">
     <%= f.attachment_field :wine_image, class: "n-form wine_image" %>
@@ -20,8 +23,8 @@
     <%= f.select :price, Wine.prices.keys, {}, class: "n-form wine_price" %>
   </div>
   <div class="my-2">
-  <%= f.label :生産年 %>
-  <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "n-form wine_vintage", :order => [:year] %>
+    <%= f.label :生産年 %>
+    <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "n-form wine_vintage", :order => [:year] %>
   </div>
   <div class="my-2" id="star">
     <%= f.label :評価 %>
@@ -31,7 +34,7 @@
     <%= f.submit "投稿する", class: "btn btn-success w-100" %>
   </div>
   <% end %>
-
+  <!--星評価-->
   <script>
   $("#star").raty({
     starOff:  "<%= asset_path("star-off.png") %>",

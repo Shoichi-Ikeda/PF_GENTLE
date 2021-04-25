@@ -6,49 +6,49 @@
 <div class="index-container">
   <div class="row">
     <% @wines.each do |wine| %>
-    <div class="index-box">
-      <div class="card shadow-lg text-center">
-      <%= link_to wine_path(wine.id) do %>
-        <%= attachment_image_tag wine, :wine_image, :fill, 200, 200, fallback: "no_wine.jpg", size: "200x200", class: "card-image rounded" %>
-        <div class="card-body pt-1 pb-1">
-          <p class="card-title m-1">
-          <%= wine.wine_name %>
-          </p>
-      <% end %>
-          <p class="star m-2" id="star<%= wine.id %>">
-            <script>
-            $("#star<%= wine.id %>").empty();
-            $("#star<%= wine.id %>").raty({
-              starOff: "<%= asset_path("star-off.png") %>",
-              starOn : "<%= asset_path("star-on.png") %>",
-              readOnly: true,
-              score: <%= wine.rating %>,
-            });
-            </script>
-          </p>
-          <div class="row border-top m-auto">
-            <div class="col m-1 comment-btn">
-              <div class="fas fa-comment glass_blue">
-                <%= wine.post_comments.count %>
+      <div class="index-box">
+        <div class="card shadow-lg text-center">
+          <%= link_to wine_path(wine.id) do %>
+            <%= attachment_image_tag wine, :wine_image, :fill, 200, 200, fallback: "no_wine.jpg", size: "200x200", class: "card-image rounded" %>
+              <div class="card-body pt-1 pb-1">
+                <p class="card-title m-1">
+                  <%= wine.wine_name %>
+                </p>
+          <% end %>
+                <p class="star m-2" id="star<%= wine.id %>">
+                <script>
+                $("#star<%= wine.id %>").empty();
+                  $("#star<%= wine.id %>").raty({
+                    starOff: "<%= asset_path("star-off.png") %>",
+                    starOn : "<%= asset_path("star-on.png") %>",
+                    readOnly: true,
+                    score: <%= wine.rating %>,
+                  });
+                </script>
+                </p>
+                <div class="row border-top m-auto">
+                  <div class="col m-1 comment-btn">
+                    <div class="fas fa-comment glass_blue">
+                      <%= wine.post_comments.count %>
+                    </div>
+                  </div>
+                  <div class="col m-1">
+                    <%= render "cheers/cheer-btn-index", wine: wine %>
+                  </div>
+                </div>
+                <div class="row border-top">
+                  <div class="col-5 p-2">
+                    <%= link_to user_path(wine.user) do %>
+                      <%= attachment_image_tag wine.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100", class: "rounded user-image" %>
+                  </div>
+                  <div class="col-7 mt-5 p-0">
+                      <%= wine.user.name %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col m-1">
-              <%= render "cheers/cheer-btn-index", wine: wine %>
-            </div>
-          </div>
-          <div class="row border-top">
-            <div class="col-5 p-2">
-            <%= link_to user_path(wine.user) do %>
-              <%= attachment_image_tag wine.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100", class: "rounded user-image" %>
-            </div>
-            <div class="col-7 mt-5 p-0">
-              <%= wine.user.name %>
-            <% end %>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
   <div class="row pb-2">

@@ -6,18 +6,18 @@
 <div class="user-index-container">
   <div class="row">
     <% @user.each do |user| %>
-    <div class="col-3">
-      <div class="card-deck text-center d-flex flex-lg-wrap">
-        <div class="card">
-          <%= link_to user_path(user.id) do %>
-            <%= attachment_image_tag user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200", class: "card-image rounded" %>
-          <div class="card-body px-1">
-            <h5 class="card-title"><%= user.name %></h5>
-          <% end %>
+      <div class="col-3">
+        <div class="card-deck text-center d-flex flex-lg-wrap">
+          <div class="card">
+            <%= link_to user_path(user.id) do %>
+              <%= attachment_image_tag user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200", class: "card-image rounded" %>
+              <div class="card-body px-1">
+                <h5 class="card-title"><%= user.name %></h5>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
