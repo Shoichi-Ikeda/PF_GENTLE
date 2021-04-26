@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .box {
-  background-image: image-url(top_image.jpg);
+  background-image: image-url("top_image.jpg");
   background-color: rgba(255,255,255,0.5);
   background-blend-mode: lighten;
   background-size: cover;
