@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .result-bg {
-  background-image: url(result.jpg);
+  background-image: image-url(result.jpg);
   background-color: rgba(255,255,255,0.5);
   background-blend-mode: lighten;
   background-size: cover;
