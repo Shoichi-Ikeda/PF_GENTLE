@@ -26,8 +26,10 @@
           <td class="px-0 w-50">
             <%= post_comment.comment %>
           </td>
+          <td class="sentiment-score text-center">感情スコア<br>
+            <%= post_comment.score %>
+          </td>
           <td class="comment-delete-btn">
-            <span class="sentiment-score">感情スコア:<%= post_comment.score %></span><br>
             <% if current_user == post_comment_user %>
               <%= link_to "削除する", wine_post_comment_path(post_comment.wine_id, post_comment.id), class: "btn-sm btn-danger", method: :delete %>
             <% end %>
