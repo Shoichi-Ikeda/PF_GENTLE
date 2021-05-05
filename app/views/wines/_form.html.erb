@@ -36,10 +36,11 @@
   <% end %>
   <!--星評価-->
   <script>
-  $("#star").raty({
-    starOff:  "<%= asset_path("star-off.png") %>",
-    starOn : "<%= asset_path("star-on.png") %>",
-    scoreName: "wine[rating]",
-  });
+  $("#star").empty();
+    $("#star").raty({
+      starOff:  "<%= asset_path("star-off.png") %>",
+      starOn : "<%= asset_path("star-on.png") %>",
+      scoreName: "wine[rating]",
+    });
   </script>
 </div>
