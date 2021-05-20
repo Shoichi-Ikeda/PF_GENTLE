@@ -28,8 +28,12 @@
 
 main {
   background-color: #800000;
-  min-height: calc(100vh - 9rem);
+  min-height: 100vh;
   margin-bottom: 65px;
+}
+
+.signup-bg, .login-bg {
+  min-height: 100vh;
 }
 
 .navbar-brand {
