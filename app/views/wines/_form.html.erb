@@ -1,36 +1,36 @@
 <div class="tasting-form">
-  <h2 class="new-form">NEW TASTING</h2>
+  <h3 class="new-form">NEW TASTING</h3>
   <div class="f-alert">
     <%= flash[:form_danger] %>
   </div>
   <%= form_with model: wine, local: true do |f| %>
   <div class="my-3">
-    <%= f.attachment_field :wine_image, class: "n-form wine_image" %>
+    <%= f.attachment_field :wine_image, class: "n-form wine_image w-100" %>
   </div>
   <div class="my-3">
-    <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"n-form wine_name" %>
+    <%= f.text_field :wine_name, :placeholder => "ワイン名を入力     ", class:"n-form wine_name w-100" %>
   </div>
   <div class="my-3">
-    <%= f.select :kind, Wine.kinds.keys, {}, class: "n-form wine_kind" %>
+    <%= f.select :kind, Wine.kinds.keys, {}, class: "n-form wine_kind w-100" %>
   </div>
   <div class="my-3">
-    <%= f.select :country, Wine.countries.keys, {}, class: "n-form wine_country" %>
+    <%= f.select :country, Wine.countries.keys, {}, class: "n-form wine_country w-100" %>
   </div>
   <div class="my-3">
-    <%= f.select :variety, Wine.varieties.keys, {}, class: "n-form wine_variety" %>
+    <%= f.select :variety, Wine.varieties.keys, {}, class: "n-form wine_variety w-100" %>
   </div>
   <div class="my-3">
-    <%= f.select :price, Wine.prices.keys, {}, class: "n-form wine_price" %>
+    <%= f.select :price, Wine.prices.keys, {}, class: "n-form wine_price w-100" %>
   </div>
   <div class="my-2">
     <%= f.label :生産年 %>
-    <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "n-form wine_vintage", :order => [:year] %>
+    <%= f.date_select :vintage,{:discard_month => true, :start_year => 1989, :end_year => (Time.now.year)}, include_blank: "---", class: "n-form wine_vintage w-100", :order => [:year] %>
   </div>
   <div class="my-2" id="star">
     <%= f.label :評価 %>
     <%= f.hidden_field :rating, id: :rating_star, class: "form_rating" %>
   </div>
-  <div class="pb-3">
+  <div class="pb-2">
     <%= f.submit "投稿する", class: "btn btn-success w-100" %>
   </div>
   <% end %>

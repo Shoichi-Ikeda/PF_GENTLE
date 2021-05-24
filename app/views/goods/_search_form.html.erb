@@ -1,9 +1,9 @@
 <div class="rakuten-api">
   <div id="search-box">
-    <h3 class="new-form">RAKUTEN SEARCH</h3>
+    <h3 class="new-form w-100">RAKUTEN SEARCH</h3>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field 'keyword', placeholder: "検索ワードを入力", class: "rakuten-search-form" %>
-      <%= f.submit "検索", class: "rakuten-search-form  btn btn-sm btn-success" %>
+      <%= f.text_field 'keyword', placeholder: "検索ワードを入力", class: "rakuten-search-form w-100" %>
+      <%= f.submit "検索", class: "rakuten-search-form  btn btn-sm btn-success w-100 mt-1" %>
     <% end %>
   </div>
   <div class="alert">
