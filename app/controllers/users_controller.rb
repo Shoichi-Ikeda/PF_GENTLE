@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: %i[edit update destroy]
+  before_action :ensure_currect_user, only: %i[edit update destroy]
 
   def index
     @user = User.all
@@ -39,8 +39,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image)
   end
 
-  def ensure_correct_user
+  def ensure_currect_user
     @user = User.find(params[:id])
-    redirect_to user_path(current_user) unless @user == current_user
+    redirect_to user_path(current_user) unless @user.me?(current_user.id)
   end
 end

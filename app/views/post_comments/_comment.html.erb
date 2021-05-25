@@ -30,7 +30,7 @@
             <%= post_comment.score %>
           </td>
           <td class="comment-delete-btn">
-            <% if current_user == post_comment_user %>
+            <% if current_user.me?(post_comment_user.id) %>
               <%= link_to "削除する", wine_post_comment_path(post_comment.wine_id, post_comment.id), class: "btn-sm btn-danger", method: :delete %>
             <% end %>
           </td>

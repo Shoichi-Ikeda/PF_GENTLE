@@ -3,7 +3,7 @@
     <div class="user-info mr-auto">
       <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "200x200", class: "mb-2 rounded" %>
       <br>
-      <% if @user == current_user %>
+      <% if @user.me?(current_user.id) %>
         <span class="">email : <%= current_user.email %></span>
         <br>
         <%= link_to edit_user_path(current_user), class: "user-edit" do %>

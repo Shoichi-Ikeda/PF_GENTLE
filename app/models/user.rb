@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
+
+  def me?(user_id)
+    id == user_id
+  end
 end
