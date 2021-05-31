@@ -1,0 +1,14 @@
+<div class="site-search">
+  <div id="search-box">
+    <h3 class="new-form w-100">SITE SEARCH</h3>
+  <%= form_with url: research_path, method: :get, local: true do |f| %>
+    <%= f.text_field :content, placeholder: "検索ワードを入力", class: "site-search-form w-100" %>
+    <%= f.select :model, options_for_select({ "User" => "user", "Wine" => "wine" }) %>
+    <%= f.select :method, options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+    <%= f.submit "検索", class: "site-search-form  btn btn-sm btn-success w-100 mt-1" %>
+  <% end %>
+  </div>
+  <div class="alert">
+    <%= flash[:search_danger] %>
+  </div>
+</div>
