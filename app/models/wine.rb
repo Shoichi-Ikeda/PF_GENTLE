@@ -10,6 +10,18 @@ class Wine < ApplicationRecord
     cheers.where(user_id: user.id).exists?
   end
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Wine.where(wine_name: content)
+    elsif method == 'forward'
+      Wine.where('wine_name LIKE ?', content+'%')
+    elsif method == 'backward'
+      Wine.where('wine_name LIKE ?', '%'+content)
+    else
+      Wine.where('wine_name LIKE ?', '%'+content+'%')
+    end
+  end
+
   validates :wine_name, presence: true
 
   enum kind: {

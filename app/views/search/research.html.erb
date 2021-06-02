@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="result-bg rounded w-90">
+    <h2 class="h-text">SITE SERCH RESULTS</h2>
+  </div>
+</div>
+<% if @model == 'user' %>
+	<h2 class="text-center m-3 text-white">Users search for "<%= @content %>"</h2>
+	<div class="container">
+    <div class="row">
+      <% @records.each do |user| %>
+        <div class="col-3">
+          <div class="card-deck text-center d-flex flex-lg-wrap">
+            <div class="card p-2">
+              <%= link_to user_path(user.id) do %>
+                <%= attachment_image_tag user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200", class: "card-image rounded" %>
+                  <div class="card-body px-1">
+                    <h5 class="card-title"><%= user.name %></h5>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% elsif @model == 'wine' %>
+	<h2 class="text-center m-3 text-white">Wines search for "<%= @content %>"</h2>
+	<div class="container">
+    <div class="row">
+      <% @records.each do |wine| %>
+        <div class="col-3">
+          <div class="card-deck text-center d-flex flex-lg-wrap">
+            <div class="card p-2">
+              <%= link_to wine_path(wine.id) do %>
+                <%= attachment_image_tag wine, :wine_image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200", class: "card-image rounded" %>
+                  <div class="card-body px-1">
+                    <h5 class="card-title"><%= wine.wine_name %></h5>
+                  </div>
+                  <div class="card-footer">
+                    <%= wine.kind %> / <%= wine.country %><br>
+                    <%= wine.price %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

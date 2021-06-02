@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'homes#top'
-  get '/search' => 'goods#search', as: 'search'
+  get '/search' => 'goods#search'
+  get '/research' => 'search#research'
 
   resources :users, only: %i[index show edit update destroy]
   resources :wines, only: %i[index show create destroy] do
